@@ -12,19 +12,14 @@ pipeline {
     stages{
         stage('Checkout'){
             steps{
-                checkout scm
+                git branch: 'main', url: 'https://github.com/petroffniki/StudentRegistryAppDemo'
             }
         }
 
         stage('Install Dependencies') {
             steps{
                 script{
-                    if(isUnix){
-                        sh 'npm install'
-                    }
-                    else{
-                        sh 'npm install'
-                    }
+                    bat 'npm install'
                 }
             }
         }
