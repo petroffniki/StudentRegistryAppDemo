@@ -25,9 +25,12 @@ pipeline {
         }
         stage('Start application and run tests'){
             steps{
-                sh 'npm start &'
-                sh 'wait-on http://localhost/8090'
-                sh 'npm test'
+                script {
+                    bat 'npm start &'
+                    bat 'wait-on http://localhost/8090'
+                    bat 'npm test'
+                }
+
             }
         }
         post{
